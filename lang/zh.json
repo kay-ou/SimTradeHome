@@ -1,0 +1,151 @@
+{
+  "document": {
+    "title": "SimTrade - 金融模拟与策略开发生态系统"
+  },
+  "language": {
+    "en": "English",
+    "de": "德文"
+  },
+  "navbar": {
+    "overview": "概述",
+    "modules": "模块",
+    "workflow": "工作流程",
+    "features": "特性",
+    "github": "GitHub"
+  },
+  "hero": {
+    "title": "SimTrade <span class='text-primary'>生态系统</span>",
+    "subtitle": "为交易员和开发者打造的模块化、开源金融模拟、策略开发和机器学习工具套件。",
+    "exploreModules": "探索模块",
+    "viewSource": "查看源码"
+  },
+  "overview": {
+    "title": "生态系统概述",
+    "subtitle": "SimTrade生态系统设计注重模块化、清晰度和跨项目互操作性。",
+    "feature1Title": "模块化设计",
+    "feature1Desc": "每个组件功能明确，可以独立使用或灵活组合，满足不同的研究和交易需求。",
+    "feature2Title": "开源协作",
+    "feature2Desc": "完全开源，支持社区贡献，持续改进优化。",
+    "feature3Title": "无缝集成",
+    "feature3Desc": "模块间设计相互调用和数据共享，形成从数据处理到策略执行的完整闭环。",
+    "viewGitHub": "查看GitHub仓库"
+  },
+  "modules": {
+    "title": "核心模块",
+    "subtitle": "SimTrade生态系统由三个核心模块组成，每个模块专注于金融研究和交易的不同方面。",
+    "data": {
+      "badge": "数据基础",
+      "title": "SimTradeData",
+      "desc": "提供干净、结构化的金融数据，支持历史数据获取、处理和存储，为整个生态系统提供数据源。",
+      "feature1": "多源数据整合与清洗",
+      "feature2": "高效数据存储与检索",
+      "feature3": "标准化数据格式",
+      "feature4": "时间序列数据处理工具"
+    },
+    "lab": {
+      "badge": "策略引擎",
+      "title": "SimTradeLab",
+      "desc": "轻量级、事件驱动的策略回测框架，利用原始数据和模型输出来运行带有动态决策的策略模拟。",
+      "feature1": "事件驱动回测系统",
+      "feature2": "多资产类别支持",
+      "feature3": "全面的绩效分析指标",
+      "feature4": "回测结果可视化"
+    },
+    "ml": {
+      "badge": "智能预测",
+      "title": "SimTradeML",
+      "desc": "用于金融预测和策略集成的机器学习引擎，从SimTradeData训练预测模型以支持交易决策。",
+      "feature1": "支持多种机器学习算法",
+      "feature2": "模型训练、评估和部署流程",
+      "feature3": "特征工程工具集",
+      "feature4": "模型可解释性分析",
+      "svgTitle": "机器学习引擎"
+    }
+  },
+  "workflow": {
+    "title": "工作流程",
+    "subtitle": "SimTrade生态系统的各个模块如何协同工作，形成完整的金融模拟和策略开发流程。",
+    "complete": {
+      "title": "完整工作流",
+      "description": "在SimTradeLab中编写的策略可以选择调用SimTradeML模型生成交易信号，形成从数据摄取到策略执行的全栈模拟流程。"
+    },
+    "flexible": {
+      "title": "灵活集成",
+      "description": "虽然三个模块设计为协同工作，但每个模块可以独立运行以满足特定需求，例如仅使用SimTradeData进行数据获取。"
+    },
+    "iterative": {
+      "title": "迭代优化",
+      "description": "工作流支持持续迭代和优化。回测结果可以反馈到模型训练中，提高模型性能和策略效果。"
+    },
+    "dataCycle": "数据循环",
+    "dataDesc": "数据采集与处理",
+    "labDesc": "策略回测与执行",
+    "mlDesc": "机器学习预测",
+    "outputTitle": "输出结果",
+    "outputDesc": "交易信号/分析",
+    "dataTypes": {
+      "financial": "金融数据",
+      "market": "市场指标",
+      "economic": "经济数据"
+    },
+    "labSvgTitle": "策略回测引擎",
+    "strategyLogicComment": "# 策略逻辑"
+  },
+  "features": {
+    "title": "核心特性",
+    "subtitle": "SimTrade生态系统的主要优势和特性，为金融研究和交易提供全面支持。",
+    "description": "SimTrade生态系统的主要优势和独特功能，为金融研究和交易提供全面支持。",
+    "data": {
+      "title": "数据驱动",
+      "description": "基于高质量金融数据构建，支持多源数据整合和标准化处理，提供可靠决策依据。"
+    },
+    "quant": {
+      "title": "量化分析",
+      "description": "提供全面的量化分析工具，支持技术指标计算、风险评估和绩效衡量。"
+    },
+    "automated": {
+      "title": "自动化交易",
+      "description": "支持策略自动化执行，减少人为干预，提高交易效率和一致性。"
+    },
+    "predictive": {
+      "title": "智能预测",
+      "description": "集成先进的机器学习算法，提供市场预测和模式识别能力，辅助决策支持。"
+    },
+    "flexible": {
+      "title": "灵活扩展",
+      "description": "开放API设计，支持自定义功能开发和第三方工具集成，满足多样化需求。"
+    },
+    "community": {
+      "title": "社区驱动",
+      "description": "活跃的开源社区，持续改进和扩展功能，分享最佳实践和策略。"
+    },
+    "risk": {
+      "title": "风险管理",
+      "description": "全面的风险管理工具，支持风险评估、回测和监控，保障投资组合安全。"
+    },
+    "visual": {
+      "title": "可视化分析",
+      "description": "直观的数据可视化工具，帮助理解市场趋势、策略表现和风险状况。"
+    },
+    "dataCollection": "数据采集与处理",
+    "strategyBacktest": "策略回测与执行",
+    "mlPrediction": "机器学习预测",
+    "outputResults": "输出结果",
+    "tradingSignals": "交易信号/分析"
+  },
+  "cta": {
+    "title": "开始您的量化交易之旅",
+    "subtitle": "加入SimTrade社区，探索模块化、开源的金融模拟和策略开发工具。",
+    "description": "加入SimTrade社区，探索模块化、开源的金融模拟和策略开发工具，提升您的交易效率和决策质量。",
+    "starGithub": "在GitHub上点星",
+    "learnMore": "了解更多"
+  },
+  "footer": {
+    "logo": "SimTrade",
+    "copyright": "© 2025 SimTrade.",
+    "privacy": "隐私政策",
+    "terms": "使用条款",
+    "docs": "文档",
+    "contact": "联系我们"
+  }
+}

@@ -1,34 +1,78 @@
 # 🏠 SimTradeHome
 
-**SimTradeHome** is the central hub of the SimTrade ecosystem—a modular suite of open-source tools for financial simulation, strategy development, and machine learning.
+**SimTradeHome** is the official homepage of the SimTrade ecosystem, a modular open-source suite of financial simulation, strategy development, and machine learning tools.
 
-## 📦 Ecosystem Overview
+## 🌟 Project Introduction
 
-The SimTrade ecosystem is designed for modularity, clarity, and cross-project interoperability. Each module can operate independently or be combined for full-stack financial simulation workflows.
+This homepage serves as the central hub for the SimTrade series of tools, showcasing the entire ecosystem's architecture, features, and usage. It adopts a modern design style and provides an intuitive user experience to help users quickly understand and utilize the various modules of SimTrade.
 
-## 🔗 How They Work Together
+## 📁 Project Structure
 
-The SimTrade ecosystem is designed for modularity and seamless interoperability. Each module serves a distinct role while supporting cross-project workflows:
+```
+SimTradeHome/
+├── index.html       # Main HTML file
+├── css/
+│   └── styles.css   # Custom styles
+├── js/
+│   └── main.js      # Interactive scripts
+├── img/
+│   ├── logo.svg     # Logo icon
+│   └── workflow.svg # Workflow diagram
+├── README.md        # Project documentation
+├── requirements.md  # Requirements document
+├── design.md        # Design document
+└── todo.md          # TODO list
+```
 
-- [SimTradeLab](https://github.com/ykayz/SimTradeLab): lightweight, event-driven strategy backtesting framework, runs strategy simulations using both raw data and model outputs, enabling dynamic decision-making and performance evaluation.
-- [SimTradeML](https://github.com/ykayz/SimTradeML): machine learning engine for financial prediction and strategy integration, it consumes data from SimTradeData to train predictive models, which can be deployed as APIs or files.
-- [SimTradeData](https://github.com/ykayz/SimTradeData): provides clean, structured financial data used by both SimTradeLab and SimTradeML.
+## 🚀 Quick Start
 
-Strategies written in SimTradeLab can optionally call SimTradeML models for signal generation, and log results back into SimTradeData-compatible formats.
+### Installation and Running
 
-Together, these modules form a full-stack simulation pipeline—from data ingestion to model training to strategy execution.
+1. Clone or download this project
+2. Open the `index.html` file with any modern browser
+3. Or run with a local server (recommended):
+   ```bash
+   # Using Python's built-in HTTP server
+   python -m http.server
+   
+   # Or using Node.js http-server
+   npm install -g http-server
+   http-server
+   ```
 
-## 🔗 Module Highlights
+### Main Features
 
-| Module        | Role                                      | Language | Status     |
-|---------------|-------------------------------------------|----------|------------|
-| SimTradeData  | Data infrastructure for simulation         | Python   | Active     |
-| SimTradeLab   | Strategy backtesting engine                | Python   | Active     |
-| SimTradeML    | ML model training and deployment           | Python   | Active     |
+- **Ecosystem Overview**: Understand the overall architecture and design philosophy of SimTrade
+- **Module Showcase**: Detailed introduction to the three core modules - SimTradeData, SimTradeLab, and SimTradeML
+- **Workflow**: Visual demonstration of how modules collaborate
+- **Feature Highlights**: Emphasis on the core advantages and distinctive features of the entire ecosystem
 
-All modules are designed with modular architecture, clear separation of concerns, and compatibility with cloud-native workflows.
+## 🎨 Design Features
 
-## ✨ About SimTrade
+- **Modern UI**: Clean, professional design style highlighting fintech aesthetics
+- **Responsive Layout**: Perfectly adapts to desktop, tablet, and mobile devices
+- **Interactive Effects**: Including smooth scrolling, hover animations, and page transitions
+- **Visual Hierarchy**: Clear information architecture and content organization
 
-SimTrade is a community-driven initiative to build modular, open-source tools for financial research and automation. It emphasizes clarity, extensibility, and real-world applicability across data, strategy, and machine learning domains.
+## 🔗 Related Links
+
+- [SimTradeLab](https://github.com/ykayz/SimTradeLab) - Strategy Backtesting Engine
+- [SimTradeML](https://github.com/ykayz/SimTradeML) - Machine Learning Engine
+- [SimTradeData](https://github.com/ykayz/SimTradeData) - Data Infrastructure
+
+## 🤝 Contribution Guidelines
+
+Contributions to the SimTradeHome project are welcome! If you have any suggestions or find issues, please submit an Issue or Pull Request on GitHub.
+
+## 📝 License
+
+This project is licensed under the MIT License - see the LICENSE file for details
+
+## 💬 Contact Us
+
+Please feel free to contact us with any questions or suggestions.
+
+---
+
+© 2025 SimTrade Open Source Community
 

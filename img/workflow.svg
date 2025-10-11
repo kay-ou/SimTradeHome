@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <!-- 工作流程图 -->
+  
+  <!-- SimTradeData -->
+  <rect x="50" y="150" width="150" height="100" rx="8" fill="#F0F4FF" stroke="#165DFF" stroke-width="2"/>
+  <text x="125" y="175" text-anchor="middle" font-family="Inter" font-weight="600" fill="#165DFF" font-size="16">SimTradeData</text>
+  <text id="workflow-data-desc" x="125" y="205" text-anchor="middle" font-family="Inter" font-size="12" fill="#4E5969" data-lang="modules.data.desc">数据采集与处理</text>
+  
+  <!-- SimTradeLab -->
+  <rect x="250" y="50" width="150" height="100" rx="8" fill="#F0FFFB" stroke="#00B42A" stroke-width="2"/>
+  <text x="325" y="75" text-anchor="middle" font-family="Inter" font-weight="600" fill="#00B42A" font-size="16">SimTradeLab</text>
+  <text id="workflow-lab-desc" x="325" y="105" text-anchor="middle" font-family="Inter" font-size="12" fill="#4E5969" data-lang="modules.lab.desc">策略回测与执行</text>
+  
+  <!-- SimTradeML -->
+  <rect x="250" y="250" width="150" height="100" rx="8" fill="#FFF4F0" stroke="#FF7D00" stroke-width="2"/>
+  <text x="325" y="275" text-anchor="middle" font-family="Inter" font-weight="600" fill="#FF7D00" font-size="16">SimTradeML</text>
+  <text id="workflow-ml-desc" x="325" y="305" text-anchor="middle" font-family="Inter" font-size="12" fill="#4E5969" data-lang="modules.ml.desc">机器学习预测</text>
+  
+  <!-- 输出结果 -->
+  <rect x="450" y="150" width="100" height="100" rx="8" fill="#F7F7F7" stroke="#4E5969" stroke-width="2"/>
+  <text id="workflow-output-title" x="500" y="175" text-anchor="middle" font-family="Inter" font-weight="600" fill="#4E5969" font-size="14" data-lang="modules.output.title">输出结果</text>
+  <text id="workflow-output-desc" x="500" y="205" text-anchor="middle" font-family="Inter" font-size="12" fill="#4E5969" data-lang="modules.output.desc">交易信号/分析</text>
+  
+  <!-- 连接线 -->
+  <path d="M200 180 L250 100" stroke="#4E5969" stroke-width="2" stroke-dasharray="5 5"/>
+  <path d="M250 100 L240 105 L245 95 Z" fill="#4E5969"/>
+  
+  <path d="M200 220 L250 280" stroke="#4E5969" stroke-width="2" stroke-dasharray="5 5"/>
+  <path d="M250 280 L240 275 L245 285 Z" fill="#4E5969"/>
+  
+  <path d="M325 150 L325 250" stroke="#4E5969" stroke-width="2" stroke-dasharray="5 5"/>
+  <path d="M325 250 L320 240 L330 240 Z" fill="#4E5969"/>
+  
+  <path d="M400 75 L450 180" stroke="#4E5969" stroke-width="2" stroke-dasharray="5 5"/>
+  <path d="M450 180 L445 170 L440 180 Z" fill="#4E5969"/>
+  
+  <path d="M400 300 L450 220" stroke="#4E5969" stroke-width="2" stroke-dasharray="5 5"/>
+  <path d="M450 220 L440 220 L445 230 Z" fill="#4E5969"/>
+  
+  <!-- 数据流动循环 -->
+  <path d="M500 150 C550 100 550 200 500 150" stroke="#165DFF" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+  <text id="workflow-cycle" x="560" y="150" font-family="Inter" font-size="12" fill="#165DFF" transform="rotate(90, 560, 150)" data-lang="modules.cycle">数据循环</text>
+  
+  <!-- 装饰元素 -->
+  <circle cx="125" cy="150" r="8" fill="#165DFF" opacity="0.1">
+    <animate attributeName="r" values="8;12;8" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="325" cy="50" r="8" fill="#00B42A" opacity="0.1">
+    <animate attributeName="r" values="8;12;8" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="325" cy="350" r="8" fill="#FF7D00" opacity="0.1">
+    <animate attributeName="r" values="8;12;8" dur="5s" repeatCount="indefinite"/>
+  </circle>
+</svg>

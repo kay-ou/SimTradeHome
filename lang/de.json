@@ -1,0 +1,152 @@
+{
+  "document": {
+    "title": "SimTrade - Finanzsimulation & Strategieentwicklung-Ökosystem"
+  },
+  "language": {
+    "en": "Englisch",
+    "zh": "Chinesisch"
+  },
+  "navbar": {
+    "overview": "Übersicht",
+    "modules": "Module",
+    "workflow": "Arbeitsablauf",
+    "features": "Funktionen",
+    "github": "GitHub"
+  },
+  "hero": {
+    "title": "SimTrade <span class='text-primary'>Ökosystem</span>",
+    "subtitle": "Ein modularer, quelloffener Satz von Werkzeugen für Finanzsimulation, Strategieentwicklung und maschinelles Lernen für Händler und Entwickler.",
+    "exploreModules": "Module erkunden",
+    "viewSource": "Quellcode anzeigen"
+  },
+  "overview": {
+    "title": "Ökosystem-Übersicht",
+    "subtitle": "Das SimTrade-Ökosystem ist für Modularität, Klarheit und Interoperabilität über Projekte hinweg designed. Jede Komponente kann unabhängig laufen oder kombiniert werden.",
+    "feature1Title": "Modulares Design",
+    "feature1Desc": "Jede Komponente hat klare Funktionen und kann unabhängig verwendet oder flexibel kombiniert werden, um verschiedene Forschungs- und Handelsbedürfnisse zu erfüllen.",
+    "feature2Title": "Quelloffene Zusammenarbeit",
+    "feature2Desc": "Vollständig quelloffen, unterstützt Gemeinschaftsbeiträge, kontinuierliche Verbesserung und Optimierung.",
+    "feature3Title": "Nahtlose Integration",
+    "feature3Desc": "Die Module sind so designed, dass sie sich gegenseitig aufrufen und Daten teilen können, was einen vollständigen geschlossenen Kreis von der Datenverarbeitung bis zur Strategieausführung bildet.",
+    "viewGitHub": "GitHub-Repository anzeigen"
+  },
+  "modules": {
+    "title": "Kernmodule",
+    "subtitle": "Das SimTrade-Ökosystem besteht aus drei Kernmodulen, die sich jeweils auf verschiedene Aspekte der Finanzforschung und des Handels konzentrieren.",
+    "data": {
+      "badge": "Datengrundlage",
+      "title": "SimTradeData",
+      "desc": "Bietet saubere, strukturierte Finanzdaten und unterstützt die Erfassung, Verarbeitung und Speicherung historischer Daten.",
+      "feature1": "Integration und Bereinigung mehrerer Datenquellen",
+      "feature2": "Effiziente Datenspeicherung und -abfrage",
+      "feature3": "Standardisierte Datenformate",
+      "feature4": "Werkzeuge für die Verarbeitung von Zeitreihendaten"
+    },
+    "lab": {
+      "badge": "Strategie-Engine",
+      "title": "SimTradeLab",
+      "desc": "Ein leichtes, ereignisgesteuertes Framework für die Rücktestung von Strategien, das die Ausführung von Strategiesimulationen und die Leistungsevaluation unterstützt.",
+      "feature1": "Ereignisgesteuertes Rücktestsystem",
+      "feature2": "Unterstützung für mehrere Anlageklassen",
+      "feature3": "Umfassende Indikatoren zur Leistunganalyse",
+      "feature4": "Visualisierung von Rücktestresultaten"
+    },
+    "ml": {
+      "badge": "Intelligente Vorhersage",
+      "title": "SimTradeML",
+      "desc": "Eine Maschine-Learning-Engine für Finanzvorhersagen und Strategieintegration, die Vorhersagemodelle aus SimTradeData trainiert.",
+      "feature1": "Unterstützung für mehrere Machine-Learning-Algorithmen",
+      "feature2": "Prozess für Modelltraining, -auswertung und -bereitstellung",
+      "feature3": "Toolset für Feature-Engineering",
+      "feature4": "Analyse der Modellinterpretierbarkeit",
+      "svgTitle": "Maschine-Learning-Engine"
+    }
+  },
+  "workflow": {
+    "title": "Arbeitsablauf",
+    "subtitle": "Wie die Module des SimTrade-Ökosystems zusammenarbeiten, um eine vollständige Finanzsimulations- und Strategieentwicklungspipeline zu bilden.",
+    "complete": {
+      "title": "Vollständiger Arbeitsablauf",
+      "description": "In SimTradeLab geschriebene Strategien können wählen, SimTradeML-Modelle aufzurufen, um Handelsignale zu generieren und Ergebnisse in SimTradeData-kompatible Formate aufzuzeichnen."
+    },
+    "flexible": {
+      "title": "Flexible Integration",
+      "description": "Obwohl die drei Module für die Zusammenarbeit designed sind, kann jedes Modul unabhängig laufen, um spezifische Bedürfnisse zu erfüllen."
+    },
+    "iterative": {
+      "title": "Iterative Optimierung",
+      "description": "Der Arbeitsablauf unterstützt kontinuierliche Iteration und Optimierung. Rücktestresultate können in das Modelltraining zurückgespeist werden, um die Strategieleistung zu verbessern."
+    },
+    "dataCycle": "Datenzyklus",
+    "dataDesc": "Datenerfassung & -verarbeitung",
+    "labDesc": "Strategie-Rücktest & -ausführung",
+    "mlDesc": "Machine-Learning-Vorhersage",
+    "outputTitle": "Ausgabeergebnisse",
+    "outputDesc": "Handelsignale/Analyse",
+    "dataTypes": {
+      "financial": "Finanzdaten",
+      "market": "Marktindikatoren",
+      "economic": "Wirtschaftsdaten"
+    },
+    "labSvgTitle": "Strategie-Rücktest-Engine",
+    "strategyLogicComment": "# Strategielogik"
+  },
+  "features": {
+    "title": "Kernfunktionen",
+    "subtitle": "Die wichtigsten Vorteile und Funktionen des SimTrade-Ökosystems, die umfassende Unterstützung für Finanzforschung und Handel bieten.",
+    "description": "Hauptvorteile und einzigartige Funktionen des SimTrade-Ökosystems, das umfassende Unterstützung für Finanzforschung und Handel bietet.",
+    "data": {
+      "title": "Datengetrieben",
+      "description": "Auf hochwertigen Finanzdaten basierend, unterstützt die Integration und standardisierte Verarbeitung mehrerer Datenquellen."
+    },
+    "quant": {
+      "title": "Quantitative Analyse",
+      "description": "Bietet umfassende quantitative Analysewerkzeuge, die die Berechnung technischer Indikatoren, Risikobewertung und Leistungsmessung unterstützen."
+    },
+    "automated": {
+      "title": "Automatisierter Handel",
+      "description": "Unterstützt die automatisierte Ausführung von Strategien, reduziert menschliche Eingriffe und verbessert die HandelsEffizienz und -konsistenz."
+    },
+    "predictive": {
+      "title": "Intelligente Vorhersage",
+      "description": "Integriert fortschrittliche Machine-Learning-Algorithmen und bietet Marktvorhersage- und Mustererkennungsfähigkeiten."
+    },
+    "flexible": {
+      "title": "Flexible Erweiterung",
+      "description": "Offenes API-Design, unterstützt die Entwicklung benutzerdefinierter Funktionen und die Integration von Drittanbieter-Werkzeugen."
+    },
+    "community": {
+      "title": "Gemeinschaftsgetrieben",
+      "description": "Aktive Open-Source-Community, die kontinuierlich Funktionen verbessert und erweitert, Best Practices und Strategien teilt."
+    },
+    "risk": {
+      "title": "Risikomanagement",
+      "description": "Umfassende Risikomanagementwerkzeuge, die Risikobewertung, Rücktests und Überwachung unterstützen."
+    },
+    "visual": {
+      "title": "Visuelle Analyse",
+      "description": "Intuitive Datenvisualisierungswerkzeuge, um Markttrends, Strategieleistung und Risikostatus zu verstehen."
+    },
+    "dataCollection": "Datenerfassung & -verarbeitung",
+    "strategyBacktest": "Strategie-Rücktest & -ausführung",
+    "mlPrediction": "Machine-Learning-Vorhersage",
+    "outputResults": "Ausgabeergebnisse",
+    "tradingSignals": "Handelsignale/Analyse"
+  },
+  "cta": {
+    "title": "Starten Sie Ihre quantitative Handelsreise",
+    "subtitle": "Joinen Sie der SimTrade-Community, erkunden Sie modulare, quelloffene Finanzsimulations- und Strategieentwicklungswerkzeuge.",
+    "description": "Treten Sie der SimTrade-Community bei, erkunden Sie modulare, Open-Source-Finanzsimulations- und Strategieentwicklungswerkzeuge, um Ihre HandelsEffizienz und Entscheidungsqualität zu verbessern.",
+    "starGitHub": "Auf GitHub bewerten",
+    "learnMore": "Mehr erfahren"
+  },
+  "footer": {
+    "logo": "SimTrade",
+    "copyright": "© 2025 SimTrade. Open-Source-Community-Projekt. Alle Rechte vorbehalten.",
+    "privacy": "Datenschutzbestimmungen",
+    "terms": "Nutzungsbedingungen",
+    "docs": "Dokumentation",
+    "contact": "Kontakt"
+  },
+  "backToTop": "Nach oben"
+}

@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang="document.title">SimTrade - Financial Simulation & Strategy Development Ecosystem</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#6B7280',
+                        dark: '#111827',
+                        light: '#F9FAFB',
+                        'gray-light': '#F3F4F6',
+                        'gray-dark': '#4B5563',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                },
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .bg-gradient-blue {
+                background: linear-gradient(135deg, #165DFF 0%, #0042CC 100%);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter text-dark bg-white">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="text-xl font-bold">SimTrade</span>
+                </div>
+
+                <!-- 桌面端导航 -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#overview" class="text-gray-dark hover:text-primary transition-colors font-medium" data-lang="navbar.overview">Overview</a>
+                    <a href="#modules" class="text-gray-dark hover:text-primary transition-colors font-medium" data-lang="navbar.modules">Modules</a>
+                    <a href="#workflow" class="text-gray-dark hover:text-primary transition-colors font-medium" data-lang="navbar.workflow">Workflow</a>
+                    <a href="#features" class="text-gray-dark hover:text-primary transition-colors font-medium" data-lang="navbar.features">Features</a>
+                    <select id="language-selector" class="bg-gray-100 border border-gray-300 text-gray-800 py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-pointer">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="de">Deutsch</option>
+                    </select>
+                </div>
+
+                <!-- 移动端菜单切换按钮 -->
+                <a href="https://github.com/ykayz" target="_blank" class="hidden md:flex items-center text-gray-dark hover:text-primary transition-colors font-medium" id="github-link">
+                    <i class="fab fa-github mr-2"></i>
+                    <span data-lang="navbar.github">GitHub</span>
+                </a>
+                <button id="menu-toggle" class="md:hidden text-gray-dark hover:text-primary transition-colors">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- 移动端导航菜单 -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg rounded-lg mt-2 p-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="#overview" class="text-gray-dark hover:text-primary transition-colors font-medium" data-lang="navbar.overview">Overview</a>
+                    <a href="#modules" class="text-gray-dark hover:text-primary transition-colors font-medium" data-lang="navbar.modules">Modules</a>
+                    <a href="#workflow" class="text-gray-dark hover:text-primary transition-colors font-medium" data-lang="navbar.workflow">Workflow</a>
+                    <a href="#features" class="text-gray-dark hover:text-primary transition-colors font-medium" data-lang="navbar.features">Features</a>
+                    <!-- GitHub链接 - 在移动端菜单中显示 -->
+                    <a href="https://github.com/ykayz" target="_blank" class="flex items-center text-gray-dark hover:text-primary transition-colors font-medium md:hidden">
+                        <i class="fab fa-github mr-2"></i>
+                        <span data-lang="navbar.github">GitHub</span>
+                    </a>
+                    <select id="language-selector-mobile" class="bg-gray-100 border border-gray-300 text-gray-800 py-2 px-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 cursor-pointer">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                        <option value="de">Deutsch</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- 英雄区域 -->
+    <section class="pt-32 pb-20 md:pt-40 md:pb-32 bg-gray-light relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold mb-6 leading-tight animate-fade-in" data-lang="hero.title">SimTrade <span class="text-primary">Ecosystem</span></h1>
+                <p class="text-gray-dark text-lg md:text-xl mb-10 max-w-3xl mx-auto animate-slide-up" data-lang="hero.subtitle">A modular, open-source suite of financial simulation, strategy development, and machine learning tools for traders and developers.</p>
+                <div class="flex flex-wrap justify-center gap-4 animate-slide-up" style="animation-delay: 0.2s;">
+                    <a href="#modules" class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors shadow-lg font-medium" data-lang="hero.exploreModules">Explore Modules</a>
+                    <a href="https://github.com/ykayz" target="_blank" class="px-8 py-3 bg-white text-dark rounded-lg hover:bg-gray-100 transition-colors shadow-md font-medium" data-lang="hero.viewSource">View Source</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 背景装饰 -->
+        <div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
+    </section>
+
+    <!-- 生态系统概述 -->
+    <section id="overview" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-dark mb-4" data-lang="overview.title">Ecosystem Overview</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-dark max-w-3xl mx-auto text-lg" data-lang="overview.subtitle">
+                        SimTrade ecosystem is designed for modularity, clarity, and interoperability across projects.
+                    </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 特点1 -->
+                <div class="bg-gray-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-cubes text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-lang="overview.feature1Title">Modular Design</h3>
+                    <p class="text-gray-dark" data-lang="overview.feature1Desc">
+                        Each component has clear functions and can be used independently or flexibly combined to meet different research and trading needs.
+                    </p>
+                </div>
+                
+                <!-- 特点2 -->
+                <div class="bg-gray-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-code-fork text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-lang="overview.feature2Title">Open Source Collaboration</h3>
+                    <p class="text-gray-dark" data-lang="overview.feature2Desc">
+                        Fully open source, supporting community contributions for continuous improvement and optimization.
+                    </p>
+                </div>
+                
+                <!-- 特点3 -->
+                <div class="bg-gray-light p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-random text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-lang="overview.feature3Title">Seamless Integration</h3>
+                    <p class="text-gray-dark" data-lang="overview.feature3Desc">
+                        Modules are designed to call each other and share data, forming a complete closed loop from data processing to strategy execution.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 模块展示 -->
+    <section id="modules" class="py-20 bg-gray-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-dark mb-4" data-lang="modules.title">Core Modules</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-700 max-w-3xl mx-auto text-lg" data-lang="modules.subtitle">
+                        The SimTrade ecosystem consists of three core modules, each focusing on different aspects of financial research and trading.
+                    </p>
+            </div>
+            
+            <div class="space-y-20">
+                <!-- SimTradeData -->
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2 order-2 md:order-1">
+                        <span class="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4" data-lang="modules.data.badge">数据基础</span>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-6" data-lang="modules.data.title">SimTradeData</h3>
+                        <p class="text-gray-dark mb-6" data-lang="modules.data.desc">
+                            提供干净、结构化的金融数据，支持历史数据获取、处理和存储。作为整个生态系统的数据源，为SimTradeLab和SimTradeML提供可靠的数据基础。
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                                <span data-lang="modules.data.feature1">Multi-source data integration and cleaning</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                                <span data-lang="modules.data.feature2">Efficient data storage and retrieval</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                                <span data-lang="modules.data.feature3">Standardized data formats</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                                <span data-lang="modules.data.feature4">Time series data processing tools</span>
+                            </li>
+                        </ul>
+                        <a href="https://github.com/ykayz/SimTradeData" target="_blank" class="inline-flex items-center space-x-2 text-primary font-medium hover:text-secondary transition-colors">
+                            <span data-lang="overview.viewGitHub">View GitHub Repository</span>
+                            <i class="fa fa-external-link"></i>
+                        </a>
+                    </div>
+                    <div class="w-full md:w-1/2 order-1 md:order-2">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-blue rounded-2xl transform rotate-2 opacity-20"></div>
+                            <div class="relative bg-white p-6 rounded-2xl shadow-lg">
+                                <svg class="w-full h-auto" viewBox="0 0 400 300" fill="none">
+                                    <!-- 数据库图标 -->
+                                    <rect x="50" y="50" width="300" height="200" rx="8" fill="#F0F4FF" stroke="#165DFF" stroke-width="2"/>
+                                    <rect x="50" y="220" width="300" height="30" rx="4" fill="#165DFF"/>
+                                    <rect x="70" y="70" width="260" height="140" rx="4" fill="white" stroke="#165DFF" stroke-width="1" stroke-dasharray="4 2"/>
+                                    
+                                    <!-- 数据表表示意 -->
+                                    <line x1="70" y1="90" x2="330" y2="90" stroke="#C9CDD4" stroke-width="1"/>
+                                    <line x1="70" y1="120" x2="330" y2="120" stroke="#C9CDD4" stroke-width="1"/>
+                                    <line x1="70" y1="150" x2="330" y2="150" stroke="#C9CDD4" stroke-width="1"/>
+                                    <line x1="70" y1="180" x2="330" y2="180" stroke="#C9CDD4" stroke-width="1"/>
+                                    <line x1="140" y1="70" x2="140" y2="210" stroke="#C9CDD4" stroke-width="1"/>
+                                    <line x1="220" y1="70" x2="220" y2="210" stroke="#C9CDD4" stroke-width="1"/>
+                                    <line x1="280" y1="70" x2="280" y2="210" stroke="#C9CDD4" stroke-width="1"/>
+                                    
+                                    <!-- 数据流动画 -->
+                                    <circle cx="350" cy="150" r="8" fill="#165DFF" opacity="0.7">
+                                        <animate attributeName="cx" values="350;400;350" dur="3s" repeatCount="indefinite"/>
+                                    </circle>
+                                    
+                                    <!-- 标签 -->
+                                    <text x="200" y="125" text-anchor="middle" font-family="Inter" font-weight="500" fill="#165DFF" font-size="14" data-lang="workflow.dataTypes.financial">金融数据</text>
+                                    <text x="200" y="155" text-anchor="middle" font-family="Inter" font-weight="500" fill="#165DFF" font-size="14" data-lang="workflow.dataTypes.market">市场指标</text>
+                                    <text x="200" y="185" text-anchor="middle" font-family="Inter" font-weight="500" fill="#165DFF" font-size="14" data-lang="workflow.dataTypes.economic">经济数据</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SimTradeLab -->
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-success/20 rounded-2xl transform -rotate-2 opacity-30"></div>
+                            <div class="relative bg-white p-6 rounded-2xl shadow-lg">
+                                <svg class="w-full h-auto" viewBox="0 0 400 300" fill="none">
+                                    <!-- 实验室图标 -->
+                                    <rect x="50" y="50" width="300" height="200" rx="8" fill="#F0FFFB" stroke="#00B42A" stroke-width="2"/>
+                                    
+                                    <!-- 图表示意 -->
+                                    <path d="M70 200 L90 180 L110 210 L130 190 L150 170 L170 190 L190 160 L210 140 L230 170 L250 150 L270 130 L290 160 L310 140 L330 120" stroke="#00B42A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="70" y1="200" x2="330" y2="200" stroke="#C9CDD4" stroke-width="1"/>
+                                    <line x1="70" y1="200" x2="70" y2="100" stroke="#C9CDD4" stroke-width="1"/>
+                                    
+                                    <!-- 策略代码框 -->
+                                    <rect x="80" y="100" width="100" height="60" rx="4" fill="white" stroke="#00B42A" stroke-width="1"/>
+                                    <text x="90" y="118" font-family="Inter" font-size="10" fill="#00B42A">class Strategy:</text>
+                                    <text x="100" y="133" font-family="Inter" font-size="10" fill="#00B42A">def on_data():</text>
+                                    <text x="110" y="148" font-family="Inter" font-size="10" fill="#00B42A" data-lang="workflow.strategyLogicComment"># 策略逻辑</text>
+                                    
+                                    <!-- 回测结果框 -->
+                                    <rect x="220" y="100" width="100" height="60" rx="4" fill="white" stroke="#00B42A" stroke-width="1"/>
+                                    <text x="230" y="118" font-family="Inter" font-size="10" fill="#00B42A">Sharpe: 1.8</text>
+                                    <text x="230" y="133" font-family="Inter" font-size="10" fill="#00B42A">MaxDD: -15%</text>
+                                    <text x="230" y="148" font-family="Inter" font-size="10" fill="#00B42A">Return: 42%</text>
+                                    
+                                    <!-- 数据流 -->
+                                    <path d="M180 130 L220 130" stroke="#00B42A" stroke-width="2"/>
+                                    <path d="M220 130 L210 125 L210 135 Z" fill="#00B42A"/>
+                                    
+                                    <!-- 标签 -->
+                                    <text x="200" y="235" text-anchor="middle" font-family="Inter" font-weight="600" fill="#00B42A" font-size="16" data-lang="workflow.labSvgTitle">策略回测引擎</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <span class="inline-block px-4 py-1 rounded-full bg-success/10 text-success text-sm font-medium mb-4" data-lang="modules.lab.badge">Strategy Engine</span>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-6" data-lang="modules.lab.title">SimTradeLab</h3>
+                        <p class="text-gray-dark mb-6" data-lang="modules.lab.desc">
+                            轻量级、事件驱动的策略回测框架，利用原始数据和模型输出来运行带有动态决策的策略模拟。
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                                <span data-lang="modules.lab.feature1">Event-driven Backtesting System</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                                <span data-lang="modules.lab.feature2">Multi-asset Class Support</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                                <span data-lang="modules.lab.feature3">Comprehensive Performance Metrics</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-success mt-1 mr-3"></i>
+                                <span data-lang="modules.lab.feature4">Visualized Backtesting Results</span>
+                            </li>
+                        </ul>
+                        <a href="https://github.com/ykayz/SimTradeLab" target="_blank" class="inline-flex items-center space-x-2 text-success font-medium hover:text-success/80 transition-colors">
+                            <span data-lang="overview.viewGitHub">View GitHub Repository</span>
+                            <i class="fa fa-external-link"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- SimTradeML -->
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2 order-2 md:order-1">
+                        <span class="inline-block px-4 py-1 rounded-full bg-warning/10 text-warning text-sm font-medium mb-4" data-lang="modules.ml.badge">Smart Prediction</span>
+                        <h3 class="text-2xl md:text-3xl font-bold mb-6" data-lang="modules.ml.title">SimTradeML</h3>
+                        <p class="text-gray-dark mb-6" data-lang="modules.ml.desc">
+                            用于金融预测和策略集成的机器学习引擎，从SimTradeData训练预测模型以支持交易决策。
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-warning mt-1 mr-3"></i>
+                                <span data-lang="modules.ml.feature1">Multiple Machine Learning Algorithm Support</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-warning mt-1 mr-3"></i>
+                                <span data-lang="modules.ml.feature2">Model Training, Evaluation and Deployment Pipeline</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-warning mt-1 mr-3"></i>
+                                <span data-lang="modules.ml.feature3">Feature Engineering Toolset</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-warning mt-1 mr-3"></i>
+                                <span data-lang="modules.ml.feature4">Model Interpretability Analysis</span>
+                            </li>
+                        </ul>
+                        <a href="https://github.com/ykayz/SimTradeML" target="_blank" class="inline-flex items-center space-x-2 text-warning font-medium hover:text-warning/80 transition-colors">
+                            <span data-lang="overview.viewGitHub">View GitHub Repository</span>
+                            <i class="fa fa-external-link"></i>
+                        </a>
+                    </div>
+                    <div class="w-full md:w-1/2 order-1 md:order-2">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-warning/20 rounded-2xl transform rotate-2 opacity-30"></div>
+                            <div class="relative bg-white p-6 rounded-2xl shadow-lg">
+                                <svg class="w-full h-auto" viewBox="0 0 400 300" fill="none">
+                                    <!-- 机器学习图标 -->
+                                    <rect x="50" y="50" width="300" height="200" rx="8" fill="#FFF4F0" stroke="#FF7D00" stroke-width="2"/>
+                                    
+                                    <!-- 神经网络示意 -->
+                                    <circle cx="100" cy="100" r="15" fill="#FF7D00" opacity="0.8"/>
+                                    <circle cx="100" cy="150" r="15" fill="#FF7D00" opacity="0.8"/>
+                                    <circle cx="100" cy="200" r="15" fill="#FF7D00" opacity="0.8"/>
+                                    
+                                    <circle cx="200" cy="100" r="15" fill="#FF7D00" opacity="0.8"/>
+                                    <circle cx="200" cy="150" r="15" fill="#FF7D00" opacity="0.8"/>
+                                    <circle cx="200" cy="200" r="15" fill="#FF7D00" opacity="0.8"/>
+                                    
+                                    <circle cx="300" cy="150" r="15" fill="#FF7D00"/>
+                                    
+                                    <!-- 连接 -->
+                                    <line x1="115" y1="100" x2="185" y2="100" stroke="#FF7D00" stroke-width="1"/>
+                                    <line x1="115" y1="100" x2="185" y2="150" stroke="#FF7D00" stroke-width="1"/>
+                                    <line x1="115" y1="100" x2="185" y2="200" stroke="#FF7D00" stroke-width="1"/>
+                                    
+                                    <line x1="115" y1="150" x2="185" y2="100" stroke="#FF7D00" stroke-width="1"/>
+                                    <line x1="115" y1="150" x2="185" y2="150" stroke="#FF7D00" stroke-width="1"/>
+                                    <line x1="115" y1="150" x2="185" y2="200" stroke="#FF7D00" stroke-width="1"/>
+                                    
+                                    <line x1="115" y1="200" x2="185" y2="100" stroke="#FF7D00" stroke-width="1"/>
+                                    <line x1="115" y1="200" x2="185" y2="150" stroke="#FF7D00" stroke-width="1"/>
+                                    <line x1="115" y1="200" x2="185" y2="200" stroke="#FF7D00" stroke-width="1"/>
+                                    
+                                    <line x1="215" y1="100" x2="285" y2="150" stroke="#FF7D00" stroke-width="1"/>
+                                    <line x1="215" y1="150" x2="285" y2="150" stroke="#FF7D00" stroke-width="1"/>
+                                    <line x1="215" y1="200" x2="285" y2="150" stroke="#FF7D00" stroke-width="1"/>
+                                    
+                                    <!-- 数据输入输出 -->
+                                    <path d="M50 150 L70 150" stroke="#FF7D00" stroke-width="2"/>
+                                    <path d="M70 150 L65 145 L65 155 Z" fill="#FF7D00"/>
+                                    
+                                    <path d="M330 150 L350 150" stroke="#FF7D00" stroke-width="2"/>
+                                    <path d="M350 150 L340 145 L340 155 Z" fill="#FF7D00"/>
+                                    
+                                    <!-- 标签 -->
+                                    <text x="200" y="235" text-anchor="middle" font-family="Inter" font-weight="600" fill="#FF7D00" font-size="16">Machine Learning Engine</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工作流程部分 -->
+    <section id="workflow" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-dark mb-4" data-lang="workflow.title">Workflow</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-dark max-w-3xl mx-auto text-lg" data-lang="workflow.subtitle">
+                    How SimTrade ecosystem modules collaborate to form a complete financial simulation and strategy development pipeline.
+                </p>
+            </div>
+            
+            <div class="bg-gray-light p-8 md:p-12 rounded-2xl shadow-sm">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="w-full md:w-1/2">
+                        <svg class="w-full h-auto" viewBox="0 0 400 600" fill="none">
+                            <!-- 工作流程图（纵向布局） -->
+                            
+                            <!-- SimTradeData -->
+                            <rect x="100" y="50" width="200" height="120" rx="8" fill="#F0F4FF" stroke="#165DFF" stroke-width="2"/>
+                            <text x="200" y="95" text-anchor="middle" font-family="Inter" font-weight="600" fill="#165DFF" font-size="18">SimTradeData</text>
+                            <text x="200" y="125" text-anchor="middle" font-family="Inter" font-size="14" fill="#4E5969" data-lang="workflow.dataDesc">Data Collection & Processing</text>
+                            
+                            <!-- SimTradeLab -->
+                            <rect x="100" y="200" width="200" height="120" rx="8" fill="#F0FFFB" stroke="#00B42A" stroke-width="2"/>
+                            <text x="200" y="245" text-anchor="middle" font-family="Inter" font-weight="600" fill="#00B42A" font-size="18">SimTradeLab</text>
+                            <text x="200" y="275" text-anchor="middle" font-family="Inter" font-size="14" fill="#4E5969" data-lang="workflow.labDesc">Strategy Backtesting & Execution</text>
+                            
+                            <!-- SimTradeML -->
+                            <rect x="100" y="350" width="200" height="120" rx="8" fill="#FFF4F0" stroke="#FF7D00" stroke-width="2"/>
+                            <text x="200" y="395" text-anchor="middle" font-family="Inter" font-weight="600" fill="#FF7D00" font-size="18">SimTradeML</text>
+                            <text x="200" y="425" text-anchor="middle" font-family="Inter" font-size="14" fill="#4E5969" data-lang="workflow.mlDesc">Machine Learning Prediction</text>
+                            
+                            <!-- 输出结果 -->
+                            <rect x="100" y="500" width="200" height="80" rx="8" fill="#F7F7F7" stroke="#4E5969" stroke-width="2"/>
+                            <text x="200" y="530" text-anchor="middle" font-family="Inter" font-weight="600" fill="#4E5969" font-size="16" data-lang="workflow.outputTitle">Output Results</text>
+                            <text x="200" y="555" text-anchor="middle" font-family="Inter" font-size="14" fill="#4E5969" data-lang="workflow.outputDesc">Trading Signals/Analysis</text>
+                            
+                            <!-- 连接线 -->
+                            <path d="M200 170 L200 200" stroke="#4E5969" stroke-width="2" stroke-dasharray="5 5"/>
+                            <path d="M200 200 L195 190 L205 190 Z" fill="#4E5969"/>
+                            
+                            <path d="M200 320 L200 350" stroke="#4E5969" stroke-width="2" stroke-dasharray="5 5"/>
+                            <path d="M200 350 L195 340 L205 340 Z" fill="#4E5969"/>
+                            
+                            <path d="M200 470 L200 500" stroke="#4E5969" stroke-width="2" stroke-dasharray="5 5"/>
+                            <path d="M200 500 L195 490 L205 490 Z" fill="#4E5969"/>
+                            
+                            <!-- 交叉连接：SimTradeData -> SimTradeML -->
+                            <path d="M150 110 C70 110 70 410 150 410" stroke="#4E5969" stroke-width="2" stroke-dasharray="3 3"/>
+                            <path d="M150 410 L145 400 L155 400 Z" fill="#4E5969"/>
+                            
+                            <!-- 交叉连接：SimTradeML -> SimTradeLab -->
+                            <path d="M250 410 C330 410 330 240 250 240" stroke="#4E5969" stroke-width="2" stroke-dasharray="3 3"/>
+                            <path d="M250 240 L245 250 L255 250 Z" fill="#4E5969"/>
+                            
+                            <!-- 数据流动循环 -->
+                            <path d="M320 100 C360 100 360 520 320 520 L320 520" stroke="#165DFF" stroke-width="2" stroke-dasharray="3 3" fill="none"/>
+                            <path d="M320 100 L325 90 L315 90 Z" fill="#165DFF"/>
+                            <text x="360" y="300" font-family="Inter" font-size="14" fill="#165DFF" transform="rotate(90, 360, 300)" data-lang="workflow.dataCycle">Data Cycle</text>
+                        </svg>
+                    </div>
+                    <div class="w-full md:w-1/2 space-y-6">
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <h3 class="text-lg font-bold mb-3 flex items-center" data-lang="workflow.complete.title">
+                                <i class="fa fa-long-arrow-right text-primary mr-2"></i>
+                            </h3>
+                            <p class="text-gray-dark" data-lang="workflow.complete.description">
+                                Strategies written in SimTradeLab can optionally call SimTradeML models to generate trading signals, and record results back in SimTradeData compatible formats. The three modules together form a full-stack simulation pipeline from data ingestion to model training to strategy execution.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <h3 class="text-lg font-bold mb-3 flex items-center" data-lang="workflow.flexible.title">
+                                <i class="fa fa-link text-primary mr-2"></i>
+                            </h3>
+                            <p class="text-gray-dark" data-lang="workflow.flexible.description">
+                                While designed to work together, each module can run independently to meet specific needs. You can use only SimTradeData to acquire and process data, or only SimTradeLab for strategy backtesting.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-xl shadow-sm">
+                            <h3 class="text-lg font-bold mb-3 flex items-center" data-lang="workflow.iterative.title">
+                                <i class="fa fa-refresh text-primary mr-2"></i>
+                            </h3>
+                            <p class="text-gray-dark" data-lang="workflow.iterative.description">
+                                The workflow supports continuous iteration and optimization. Backtesting results can be fed back into model training, and improved models can enhance strategy performance, forming a virtuous cycle.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特性亮点 -->
+    <section id="features" class="py-20 bg-gray-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-dark mb-4" data-lang="features.title">Core Features</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-dark max-w-3xl mx-auto text-lg" data-lang="features.description">
+                    Key advantages and distinctive capabilities of the SimTrade ecosystem, providing comprehensive support for financial research and trading.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 特性1 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-database text-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-lang="features.data.title">Data-driven</h3>
+                    <p class="text-gray-dark" data-lang="features.data.description">
+                        Built on high-quality financial data, supporting multi-source data integration and standardized processing to provide a reliable foundation for decision-making.
+                    </p>
+                </div>
+                
+                <!-- 特性2 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-line-chart text-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-lang="features.quant.title">Quantitative Analysis</h3>
+                    <p class="text-gray-dark" data-lang="features.quant.description">
+                        Provides comprehensive quantitative analysis tools supporting technical indicator calculation, risk assessment, and performance measurement.
+                    </p>
+                </div>
+                
+                <!-- 特性3 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-cogs text-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-lang="features.automated.title">Automated Trading</h3>
+                    <p class="text-gray-dark" data-lang="features.automated.description">
+                        Supports strategy automation execution, reducing human intervention and improving trading efficiency and consistency.
+                    </p>
+                </div>
+                
+                <!-- 特性4 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-brain text-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-lang="features.predictive.title">Intelligent Prediction</h3>
+                    <p class="text-gray-dark" data-lang="features.predictive.description">
+                        Integrates advanced machine learning algorithms to provide market prediction and pattern recognition capabilities to assist decision-making.
+                    </p>
+                </div>
+                
+                <!-- 特性5 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-code text-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-lang="features.flexible.title">Flexible Extension</h3>
+                    <p class="text-gray-dark" data-lang="features.flexible.description">
+                        Open API design supporting custom function development and third-party tool integration to meet diverse needs.
+                    </p>
+                </div>
+                
+                <!-- 特性6 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-users text-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-lang="features.community.title">Community-driven</h3>
+                    <p class="text-gray-dark" data-lang="features.community.description">
+                        Active open-source community continuously improving and extending features, sharing best practices and strategies.
+                    </p>
+                </div>
+                
+                <!-- 特性7 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-shield text-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-lang="features.risk.title">Risk Management</h3>
+                    <p class="text-gray-dark" data-lang="features.risk.description">
+                        Comprehensive risk management tools supporting risk assessment, backtesting, and monitoring to protect portfolio safety.
+                    </p>
+                </div>
+                
+                <!-- 特性8 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow card-hover">
+                    <div class="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fa fa-chart-pie text-xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-lang="features.visual.title">Visual Analysis</h3>
+                    <p class="text-gray-dark" data-lang="features.visual.description">
+                        Intuitive data visualization tools to help understand market trends, strategy performance, and risk conditions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 行动号召 -->
+    <section class="py-20 bg-gradient-blue text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold mb-6" data-lang="cta.title">Start Your Quantitative Trading Journey</h2>
+            <p class="text-white/90 max-w-2xl mx-auto text-lg mb-10" data-lang="cta.description">
+                Join the SimTrade community, explore modular, open-source financial simulation and strategy development tools to enhance your trading efficiency and decision quality.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://github.com/ykayz" target="_blank" class="px-6 py-3 bg-white text-primary rounded-lg hover:bg-gray-100 transition-colors shadow-lg font-medium">
+                    <i class="fab fa-github mr-2"></i> <span data-lang="cta.starGithub">Star on GitHub</span>
+                </a>
+                <a href="#modules" class="px-6 py-3 bg-transparent border-2 border-white text-white rounded-lg hover:bg-white/10 transition-colors font-medium">
+                    <span data-lang="cta.learnMore">Learn More</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-10">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <svg class="w-8 h-8 text-primary mr-2" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="text-xl font-bold" data-lang="footer.logo">SimTrade</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://github.com/ykayz" target="_blank" class="text-white/70 hover:text-primary transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white/70 hover:text-primary transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white/70 hover:text-primary transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-white/70 hover:text-primary transition-colors">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-white/50 text-sm mb-4 md:mb-0">
+                        <span data-lang="footer.copyright">© 2025 SimTrade.</span>
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4 text-sm text-white/50">
+                        <a href="#" class="hover:text-primary transition-colors" data-lang="footer.privacy">Privacy Policy</a>
+                        <a href="#" class="hover:text-primary transition-colors" data-lang="footer.terms">Terms of Service</a>
+                        <a href="#" class="hover:text-primary transition-colors" data-lang="footer.docs">Documentation</a>
+                        <a href="#" class="hover:text-primary transition-colors" data-lang="footer.contact">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
