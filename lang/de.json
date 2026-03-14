@@ -64,11 +64,11 @@
     "desk": {
       "badge": "Professionelle Desktop-Version",
       "title": "SimTradeDesk",
-      "desc": "Die dedizierte Desktop-Version von SimTradeLab, die eine schnelle, sichere und vollständig lokale Umgebung für Strategieentwicklung, Rücktests, Simulation und Broker-seitige Bereitstellung bietet. Kein Python, keine Umgebungskonfiguration - einfach herunterladen, installieren und Strategien entwickeln.",
+      "desc": "Die dedizierte Desktop-Version von SimTradeLab bietet eine schnelle, sichere und vollständig lokale Umgebung für Strategieentwicklung, Backtesting, Simulation und Broker-seitige Bereitstellung. Kein Python, keine Umgebungskonfiguration - einfach herunterladen, installieren und mit dem Strategiebau beginnen.",
       "feature1": "PTrade-kompatible API mit 46 Kernfunktionen",
-      "feature2": "Strategie-Editor mit Autovervollständigung und Syntax-Hervorhebung",
+      "feature2": "Strategie-Editor mit Autovervollständigung und Syntaxhervorhebung",
       "feature3": "Parameter-Optimierer mit Walk-Forward-Validierung",
-      "feature4": "Plattformübergreifende Unterstützung (Windows, macOS, Linux)",
+      "feature4": "Cross-Plattform-Unterstützung (Windows, macOS, Linux)",
       "svgTitle": "Desktop-Anwendung"
     }
   },

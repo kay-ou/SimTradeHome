@@ -64,10 +64,10 @@
     "desk": {
       "badge": "专业桌面版",
       "title": "SimTradeDesk",
-      "desc": "SimTradeLab的专属桌面版，提供快速、安全、完全本地化的策略开发、回测、模拟交易与券商端部署环境。无需Python，无需配环境，下载安装即可开始写策略。",
-      "feature1": "兼容PTrade API，支持46个核心函数",
-      "feature2": "策略编辑器，支持自动补全和语法高亮",
-      "feature3": "参数优化器，支持滚动验证",
+      "desc": "SimTradeLab 的专用桌面版，为策略开发、回测、模拟和经纪商端部署提供快速、安全且完全本地的环境。无需 Python，无需环境配置 - 只需下载、安装，即可开始构建策略。",
+      "feature1": "兼容 PTrade 的 API，包含 46 个核心函数",
+      "feature2": "带有自动完成和语法高亮的策略编辑器",
+      "feature3": "带有前向验证的参数优化器",
       "feature4": "跨平台支持（Windows、macOS、Linux）",
       "svgTitle": "桌面应用"
     }
