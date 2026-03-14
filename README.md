@@ -56,9 +56,9 @@ SimTradeHome/
 
 ## 🔗 Related Links
 
-- [SimTradeLab](https://github.com/ykayz/SimTradeLab) - Strategy Backtesting Engine
-- [SimTradeML](https://github.com/ykayz/SimTradeML) - Machine Learning Engine
-- [SimTradeData](https://github.com/ykayz/SimTradeData) - Data Infrastructure
+- [SimTradeLab](https://github.com/kay-ou/SimTradeLab) - Strategy Backtesting Engine
+- [SimTradeML](https://github.com/kay-ou/SimTradeML) - Machine Learning Engine
+- [SimTradeData](https://github.com/kay-ou/SimTradeData) - Data Infrastructure
 
 ## 🤝 Contribution Guidelines
 
