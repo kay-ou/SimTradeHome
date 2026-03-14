@@ -77,15 +77,15 @@
     "subtitle": "How the modules of the SimTrade ecosystem work together to form a complete financial simulation and strategy development pipeline.",
     "complete": {
       "title": "Complete Workflow",
-      "description": "Strategies written in SimTradeLab can choose to call SimTradeML models to generate trading signals, forming a full-stack simulation pipeline from data ingestion to strategy execution."
+      "description": "Strategies written in SimTradeLab can optionally call SimTradeML models to generate trading signals, and SimTradeDesk provides the professional desktop interface for strategy development, backtesting, and broker-side deployment. All four modules together form a complete ecosystem from data ingestion to model training to strategy execution and deployment."
     },
     "flexible": {
       "title": "Flexible Integration",
-      "description": "While the three modules are designed to work together, each module can run independently to meet specific needs, such as only using SimTradeData for data acquisition."
+      "description": "While designed to work together, each module can run independently to meet specific needs. You can use only SimTradeData for data processing, only SimTradeLab for backtesting, only SimTradeML for predictions, or only SimTradeDesk as a standalone desktop solution for strategy development and deployment."
     },
     "iterative": {
       "title": "Iterative Optimization",
-      "description": "The workflow supports continuous iteration and optimization. Backtest results can feed back into model training, improving model performance and strategy effectiveness."
+      "description": "The workflow supports continuous iteration and optimization. Backtesting results can be fed back into model training, improved models can enhance strategy performance, and SimTradeDesk provides the interface for visualizing results and deploying optimized strategies to brokers, forming a complete virtuous cycle."
     },
     "dataCycle": "Data Cycle",
     "dataDesc": "Data Collection & Processing",

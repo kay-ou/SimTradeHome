@@ -77,15 +77,15 @@
     "subtitle": "SimTrade生态系统的各个模块如何协同工作，形成完整的金融模拟和策略开发流程。",
     "complete": {
       "title": "完整工作流",
-      "description": "在SimTradeLab中编写的策略可以选择调用SimTradeML模型生成交易信号，形成从数据摄取到策略执行的全栈模拟流程。"
+      "description": "在SimTradeLab中编写的策略可以选择调用SimTradeML模型生成交易信号，而SimTradeDesk提供专业的桌面界面用于策略开发、回测和券商端部署。所有四个模块共同形成一个完整的生态系统，从数据摄取到模型训练再到策略执行和部署。"
     },
     "flexible": {
       "title": "灵活集成",
-      "description": "虽然三个模块设计为协同工作，但每个模块可以独立运行以满足特定需求，例如仅使用SimTradeData进行数据获取。"
+      "description": "虽然设计为协同工作，但每个模块可以独立运行以满足特定需求。您可以仅使用SimTradeData进行数据处理，仅使用SimTradeLab进行回测，仅使用SimTradeML进行预测，或仅使用SimTradeDesk作为独立的桌面解决方案进行策略开发和部署。"
     },
     "iterative": {
       "title": "迭代优化",
-      "description": "工作流支持持续迭代和优化。回测结果可以反馈到模型训练中，提高模型性能和策略效果。"
+      "description": "工作流支持持续迭代和优化。回测结果可以反馈到模型训练中，改进的模型可以增强策略性能，而SimTradeDesk提供可视化结果和将优化策略部署到券商的界面，形成完整的良性循环。"
     },
     "dataCycle": "数据循环",
     "dataDesc": "数据采集与处理",

@@ -77,15 +77,15 @@
     "subtitle": "Wie die Module des SimTrade-Ökosystems zusammenarbeiten, um eine vollständige Finanzsimulations- und Strategieentwicklungspipeline zu bilden.",
     "complete": {
       "title": "Vollständiger Arbeitsablauf",
-      "description": "In SimTradeLab geschriebene Strategien können wählen, SimTradeML-Modelle aufzurufen, um Handelsignale zu generieren und Ergebnisse in SimTradeData-kompatible Formate aufzuzeichnen."
+      "description": "In SimTradeLab geschriebene Strategien können wählen, SimTradeML-Modelle aufzurufen, um Handelsignale zu generieren, und SimTradeDesk bietet die professionelle Desktop-Oberfläche für Strategieentwicklung, Rücktests und Broker-seitige Bereitstellung. Alle vier Module bilden gemeinsam ein vollständiges Ökosystem von der Datenerfassung über das Modelltraining bis zur Strategieausführung und -bereitstellung."
     },
     "flexible": {
       "title": "Flexible Integration",
-      "description": "Obwohl die drei Module für die Zusammenarbeit designed sind, kann jedes Modul unabhängig laufen, um spezifische Bedürfnisse zu erfüllen."
+      "description": "Obwohl für die Zusammenarbeit designed, kann jedes Modul unabhängig laufen, um spezifische Bedürfnisse zu erfüllen. Sie können nur SimTradeData für die Datenverarbeitung, nur SimTradeLab für Rücktests, nur SimTradeML für Vorhersagen oder nur SimTradeDesk als eigenständige Desktop-Lösung für Strategieentwicklung und -bereitstellung verwenden."
     },
     "iterative": {
       "title": "Iterative Optimierung",
-      "description": "Der Arbeitsablauf unterstützt kontinuierliche Iteration und Optimierung. Rücktestresultate können in das Modelltraining zurückgespeist werden, um die Strategieleistung zu verbessern."
+      "description": "Der Arbeitsablauf unterstützt kontinuierliche Iteration und Optimierung. Rücktestresultate können in das Modelltraining zurückgespeist werden, verbesserte Modelle können die Strategieleistung steigern, und SimTradeDesk bietet die Oberfläche zur Visualisierung von Ergebnissen und zur Bereitstellung optimierter Strategien bei Brokern, was einen vollständigen virtuellen Zyklus bildet."
     },
     "dataCycle": "Datenzyklus",
     "dataDesc": "Datenerfassung & -verarbeitung",
