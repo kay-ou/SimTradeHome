@@ -91,6 +91,7 @@
     "dataDesc": "Data Collection & Processing",
     "labDesc": "Strategy Backtesting & Execution",
     "mlDesc": "Machine Learning Prediction",
+    "deskDesc": "Desktop Interface & Deployment",
     "outputTitle": "Output Results",
     "outputDesc": "Trading Signals/Analysis",
     "dataTypes": {

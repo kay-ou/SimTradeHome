@@ -59,6 +59,7 @@ SimTradeHome/
 - [SimTradeLab](https://github.com/kay-ou/SimTradeLab) - Strategy Backtesting Engine
 - [SimTradeML](https://github.com/kay-ou/SimTradeML) - Machine Learning Engine
 - [SimTradeData](https://github.com/kay-ou/SimTradeData) - Data Infrastructure
+- [SimTradeDesk](https://github.com/kay-ou/SimTradeDesk) - Professional Desktop Application
 
 ## 🤝 Contribution Guidelines
 

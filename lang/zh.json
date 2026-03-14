@@ -91,6 +91,7 @@
     "dataDesc": "数据采集与处理",
     "labDesc": "策略回测与执行",
     "mlDesc": "机器学习预测",
+    "deskDesc": "桌面界面与部署",
     "outputTitle": "输出结果",
     "outputDesc": "交易信号/分析",
     "dataTypes": {

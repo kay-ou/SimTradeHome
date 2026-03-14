@@ -91,6 +91,7 @@
     "dataDesc": "Datenerfassung & -verarbeitung",
     "labDesc": "Strategie-Rücktest & -ausführung",
     "mlDesc": "Machine-Learning-Vorhersage",
+    "deskDesc": "Desktop-Oberfläche & Bereitstellung",
     "outputTitle": "Ausgabeergebnisse",
     "outputDesc": "Handelsignale/Analyse",
     "dataTypes": {
