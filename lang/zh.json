@@ -21,18 +21,18 @@
   },
   "overview": {
     "title": "生态系统概述",
-    "subtitle": "SimTrade生态系统设计注重模块化、清晰度和跨项目互操作性。",
+    "subtitle": "SimTrade生态系统结合了开源核心模块和专业桌面版，设计注重模块化、清晰度和跨项目互操作性。",
     "feature1Title": "模块化设计",
     "feature1Desc": "每个组件功能明确，可以独立使用或灵活组合，满足不同的研究和交易需求。",
     "feature2Title": "开源协作",
-    "feature2Desc": "完全开源，支持社区贡献，持续改进优化。",
-    "feature3Title": "无缝集成",
-    "feature3Desc": "模块间设计相互调用和数据共享，形成从数据处理到策略执行的完整闭环。",
+    "feature2Desc": "完全开源的核心模块（SimTradeData、SimTradeLab、SimTradeML），支持社区贡献，持续改进优化。",
+    "feature3Title": "专业桌面体验",
+    "feature3Desc": "SimTradeDesk提供商业级桌面应用，功能增强，无需环境配置，与开源核心无缝集成。",
     "viewGitHub": "查看GitHub仓库"
   },
   "modules": {
     "title": "核心模块",
-    "subtitle": "SimTrade生态系统由三个核心模块组成，每个模块专注于金融研究和交易的不同方面。",
+    "subtitle": "SimTrade生态系统由四个核心模块组成，每个模块专注于金融研究和交易的不同方面。",
     "data": {
       "badge": "数据基础",
       "title": "SimTradeData",
@@ -60,6 +60,16 @@
       "feature3": "特征工程工具集",
       "feature4": "模型可解释性分析",
       "svgTitle": "机器学习引擎"
+    },
+    "desk": {
+      "badge": "专业桌面版",
+      "title": "SimTradeDesk",
+      "desc": "SimTradeLab的专属桌面版，提供快速、安全、完全本地化的策略开发、回测、模拟交易与券商端部署环境。无需Python，无需配环境，下载安装即可开始写策略。",
+      "feature1": "兼容PTrade API，支持46个核心函数",
+      "feature2": "策略编辑器，支持自动补全和语法高亮",
+      "feature3": "参数优化器，支持滚动验证",
+      "feature4": "跨平台支持（Windows、macOS、Linux）",
+      "svgTitle": "桌面应用"
     }
   },
   "workflow": {

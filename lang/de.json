@@ -21,18 +21,18 @@
   },
   "overview": {
     "title": "Ökosystem-Übersicht",
-    "subtitle": "Das SimTrade-Ökosystem ist für Modularität, Klarheit und Interoperabilität über Projekte hinweg designed. Jede Komponente kann unabhängig laufen oder kombiniert werden.",
+    "subtitle": "Das SimTrade-Ökosystem kombiniert quelloffene Kernmodule mit einer professionellen Desktop-Version, designed für Modularität, Klarheit und Interoperabilität über Projekte hinweg.",
     "feature1Title": "Modulares Design",
     "feature1Desc": "Jede Komponente hat klare Funktionen und kann unabhängig verwendet oder flexibel kombiniert werden, um verschiedene Forschungs- und Handelsbedürfnisse zu erfüllen.",
     "feature2Title": "Quelloffene Zusammenarbeit",
-    "feature2Desc": "Vollständig quelloffen, unterstützt Gemeinschaftsbeiträge, kontinuierliche Verbesserung und Optimierung.",
-    "feature3Title": "Nahtlose Integration",
-    "feature3Desc": "Die Module sind so designed, dass sie sich gegenseitig aufrufen und Daten teilen können, was einen vollständigen geschlossenen Kreis von der Datenverarbeitung bis zur Strategieausführung bildet.",
+    "feature2Desc": "Vollständig quelloffene Kernmodule (SimTradeData, SimTradeLab, SimTradeML), die Gemeinschaftsbeiträge für kontinuierliche Verbesserung und Optimierung unterstützen.",
+    "feature3Title": "Professionelle Desktop-Erfahrung",
+    "feature3Desc": "SimTradeDesk bietet eine kommerzielle Desktop-Anwendung mit erweiterten Funktionen, keine Umgebungskonfiguration erforderlich und nahtlose Integration mit dem quelloffenen Kern.",
     "viewGitHub": "GitHub-Repository anzeigen"
   },
   "modules": {
     "title": "Kernmodule",
-    "subtitle": "Das SimTrade-Ökosystem besteht aus drei Kernmodulen, die sich jeweils auf verschiedene Aspekte der Finanzforschung und des Handels konzentrieren.",
+    "subtitle": "Das SimTrade-Ökosystem besteht aus vier Kernmodulen, die sich jeweils auf verschiedene Aspekte der Finanzforschung und des Handels konzentrieren.",
     "data": {
       "badge": "Datengrundlage",
       "title": "SimTradeData",
@@ -60,6 +60,16 @@
       "feature3": "Toolset für Feature-Engineering",
       "feature4": "Analyse der Modellinterpretierbarkeit",
       "svgTitle": "Maschine-Learning-Engine"
+    },
+    "desk": {
+      "badge": "Professionelle Desktop-Version",
+      "title": "SimTradeDesk",
+      "desc": "Die dedizierte Desktop-Version von SimTradeLab, die eine schnelle, sichere und vollständig lokale Umgebung für Strategieentwicklung, Rücktests, Simulation und Broker-seitige Bereitstellung bietet. Kein Python, keine Umgebungskonfiguration - einfach herunterladen, installieren und Strategien entwickeln.",
+      "feature1": "PTrade-kompatible API mit 46 Kernfunktionen",
+      "feature2": "Strategie-Editor mit Autovervollständigung und Syntax-Hervorhebung",
+      "feature3": "Parameter-Optimierer mit Walk-Forward-Validierung",
+      "feature4": "Plattformübergreifende Unterstützung (Windows, macOS, Linux)",
+      "svgTitle": "Desktop-Anwendung"
     }
   },
   "workflow": {
